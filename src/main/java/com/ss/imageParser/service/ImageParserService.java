@@ -1,14 +1,18 @@
-package com.ss.topt.service;
+package com.ss.imageParser.service;
 
 import com.ss.Except4Support;
-import com.ss.topt.api.dtos.ImageDownloadRequestDto;
-import com.ss.topt.exception.IncorrectUrlFormatException;
-import com.ss.topt.exception.ResourceNotFoundException;
+import com.ss.imageParser.api.dtos.ImageDownloadRequestDto;
+import com.ss.imageParser.confJs.ConfJsAppImageParser;
+import com.ss.imageParser.confJs.ConfJsImageParser;
+import com.ss.imageParser.exception.*;
+import com.ss.imageParser.exception.support.CreatingFolderException;
+import com.ss.imageParser.exception.support.ImageDownloadException;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -28,14 +32,21 @@ public class ImageParserService {
 
     private final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36";
     private final String REFERRER = "https://www.google.com";
-    private final String HTML_TAG = "img";
+    private final String IMAGE_HTML_TAG = "img";
     private final String ATTRIBUTE = "abs:src";
-    private final String PATH = "C:\\Users\\79053\\Desktop\\";
+    ConfJsAppImageParser config = ConfJsImageParser.getInstance().getApp();
+
+
+    private String DIRECTORY_PATH = config.getDirectory();
+
+    private final String ERROR_CREATING_FOLDER_CODE = "ERROR_CREATING_FOLDER_CODE";
+    private final String ERROR_DOWNLOAD_PICTURE_CODE = "ERROR_DOWNLOAD_PICTURE_CODE";
+    private final String ERROR_DOWNLOAD_PAGE_CODE = "ERROR_DOWNLOAD_PAGE_CODE";
 
     public void parseImages(ImageDownloadRequestDto imageDownloadRequestDto) {
 
         String url = imageDownloadRequestDto.getUrl();
-        String path = PATH + imageDownloadRequestDto.getFolderName();
+        String path = DIRECTORY_PATH + imageDownloadRequestDto.getFolderName();
 
         createDirectory(path);
 
@@ -46,7 +57,7 @@ public class ImageParserService {
                     .referrer(REFERRER)
                     .get();
 
-            Elements images = doc.select(HTML_TAG);
+            Elements images = doc.select(IMAGE_HTML_TAG);
             images = filterUniqueElements(images);
 
             for (Element image : images) {
@@ -59,15 +70,16 @@ public class ImageParserService {
                 if (!executor.awaitTermination(30, TimeUnit.MINUTES)) {
                     executor.shutdownNow();
                 }
-            } catch (InterruptedException e) {}
-        } catch (MalformedURLException | IllegalArgumentException e) {
-            throw new IncorrectUrlFormatException("Пользователь ввел url некорректного формата. " + url);
+            } catch (InterruptedException e) {
+            }
+        } catch (MalformedURLException e) {
+            throw new IncorrectUrlFormatException("Некорректный url: " + url);
         } catch (NoSuchFileException e) {
-            throw new Except4Support("ERR312", "Не удалось создать папку");
+            throw new CreatingFolderException(ERROR_CREATING_FOLDER_CODE, "Ошибка в процессе создания папки");
         } catch (HttpStatusException e) {
-            throw new ResourceNotFoundException("agabuga");
+            handleHttpStatusException(e);
         } catch (IOException e) {
-            throw new Except4Support("ERR311", "Ошибка");
+            throw new Except4Support(ERROR_DOWNLOAD_PAGE_CODE, "Ошибка при скачивании страницы");
         }
     }
 
@@ -81,7 +93,9 @@ public class ImageParserService {
             URL url = new URL(imageUrl);
             InputStream in = url.openStream();
             Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e){e.printStackTrace();}
+        } catch (IOException e) {
+            throw new Except4Support(ERROR_DOWNLOAD_PICTURE_CODE, "Ошибка при скачивании картинки.");
+         }
 
     }
 
@@ -109,6 +123,21 @@ public class ImageParserService {
         File directory = new File(directoryPath);
         if (!directory.exists()) {
             directory.mkdirs();
+        }
+    }
+
+    private void handleHttpStatusException(HttpStatusException e) {
+        int statusCode = e.getStatusCode();
+        String errorMessage = statusCode + " url: " + e.getUrl();
+
+        if (statusCode == 401) {
+            throw new UnauthorizedException("Пользователь не авторизован. " + errorMessage);
+        } else if (statusCode == 403) {
+            throw new ForbiddenException("Доступ к запрашиваемому ресурсу запрещен");
+        } else if (statusCode == 404) {
+            throw new ResourceNotFoundException("Невозможно найти запрашиваемый ресурс. " + errorMessage);
+        } else {
+            throw new ImageDownloadException("Ошибка. ", errorMessage);
         }
     }
 }

@@ -1,9 +1,8 @@
-package com.ss.topt.api.controller;
+package com.ss.imageParser.api.controller;
 
-import com.ss.topt.api.dtos.ImageDownloadRequestDto;
-import com.ss.topt.service.ImageParserService;
+import com.ss.imageParser.api.dtos.ImageDownloadRequestDto;
+import com.ss.imageParser.service.ImageParserService;
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import static com.ss.imageParser.api.controller.ControllerBase.ROUTE_BASE;
+
 @Controller
 @RequestMapping("/image-parser")
 public class ImageParserController {
+
+    private final String IMAGE_DOWNLOAD_ATTRIBUTE = "imageDownloadRequestDto";
+    private final String IMAGE_DOWNLOAD_FORM_PAGE = "image-download-form";
+    private final String SUCCESS_PAGE = "success";
+
 
     private final ImageParserService imageParserService;
 
@@ -25,16 +31,14 @@ public class ImageParserController {
 
     @GetMapping
     public String showForm(Model model) {
-        model.addAttribute("imageDownloadRequestDto", new ImageDownloadRequestDto());
-        return "image-download-form";
+        model.addAttribute(IMAGE_DOWNLOAD_ATTRIBUTE, new ImageDownloadRequestDto());
+        return IMAGE_DOWNLOAD_FORM_PAGE;
     }
 
     @PostMapping
     public String processForm(@Valid @ModelAttribute ImageDownloadRequestDto imageDownloadRequestDto, Model model) {
         imageParserService.parseImages(imageDownloadRequestDto);
-
-        model.addAttribute("successMessage", "Форма успешно отправлена!");
-        return "image-download-form";
+        return SUCCESS_PAGE;
     }
 }
 

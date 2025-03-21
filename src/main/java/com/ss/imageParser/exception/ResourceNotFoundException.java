@@ -1,6 +1,6 @@
-package com.ss.topt.exception;
+package com.ss.imageParser.exception;
 
-public class ResourceNotFoundException extends RuntimeException{
+public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException() {
     }
 

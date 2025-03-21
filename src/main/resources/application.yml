@@ -56,3 +56,4 @@ spring:
 
 keycloak:
   clientid: topt-client
+

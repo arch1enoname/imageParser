@@ -1,6 +1,6 @@
-package com.ss.topt.exception;
+package com.ss.imageParser.exception;
 
-public class IncorrectUrlFormatException extends RuntimeException{
+public class IncorrectUrlFormatException extends RuntimeException {
     public IncorrectUrlFormatException() {
     }
 

@@ -4,35 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8e3189-a69e-44fc-a968-aab795169245" name="Changes" comment="">
+    <list default="true" id="4b8e3189-a69e-44fc-a968-aab795169245" name="Changes" comment="Добавлена обработка ошибок и получение пути файла из json`а">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/conf_topt_serv.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ControllerBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/HandlerSupportException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/HandlerUserException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/dtos/ImageDownloadRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsAppFactoryImageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsAppImageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsImageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/ForbiddenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/UnauthorizedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/support/CreatingFolderException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/support/ImageDownloadException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/config/js/ConfJsAppEmpty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/config/js/ConfJsAppEmpty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/config/js/ConfJsAppFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/config/js/ConfJsAppFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/ToptApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/ToptApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/api/controller/HandlerException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/api/controller/ImageParserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ImageParserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/api/dtos/ImageDownloadRequestDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/api/dtos/StringInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/exception/IncorrectUrlFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/IncorrectUrlFormatException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/topt/service/ImageParserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/service/ImageParserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ss/topt/ToptApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ss/imageParser/ToptApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except.class" beforeDir="false" />
@@ -40,7 +15,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except4SupportDocumented.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/ExceptDto.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/ExceptInfoUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/ExceptT.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except_I.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Message4User_I.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/RestTemplateConfig.class" beforeDir="false" />
@@ -82,7 +56,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadTick.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadVl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/ArrayListV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/CacheObj.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/ExceptCache.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/FormatsDate.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/MapList.class" beforeDir="false" />
@@ -204,11 +177,24 @@
       <updated>1742548968065</updated>
       <workItem from="1742548972377" duration="4127000" />
       <workItem from="1742555342474" duration="5994000" />
-      <workItem from="1742565207716" duration="8238000" />
+      <workItem from="1742565207716" duration="9994000" />
     </task>
+    <task id="LOCAL-00001" summary="Добавлена обработка ошибок и получение пути файла из json`а">
+      <option name="closed" value="true" />
+      <created>1742762686975</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742762686975</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Добавлена обработка ошибок и получение пути файла из json`а" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлена обработка ошибок и получение пути файла из json`а" />
   </component>
 </project>

@@ -29,14 +29,12 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class ImageParserService {
-
-    private final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36";
-    private final String REFERRER = "https://www.google.com";
-    private final String IMAGE_HTML_TAG = "img";
-    private final String ATTRIBUTE = "abs:src";
     ConfJsAppImageParser config = ConfJsImageParser.getInstance().getApp();
 
-
+    private final String USER_AGENT = config.getUserAgent();
+    private final String REFERRER = config.getReferrer();
+    private final String IMAGE_HTML_TAG = "img";
+    private final String ATTRIBUTE = "abs:src";
     private String DIRECTORY_PATH = config.getDirectory();
 
     private final String ERROR_CREATING_FOLDER_CODE = "ERROR_CREATING_FOLDER_CODE";
@@ -47,7 +45,6 @@ public class ImageParserService {
 
         String url = imageDownloadRequestDto.getUrl();
         String path = DIRECTORY_PATH + imageDownloadRequestDto.getFolderName();
-
         createDirectory(path);
 
         try (ExecutorService executor = Executors.newFixedThreadPool(10)) {

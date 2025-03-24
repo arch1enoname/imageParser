@@ -1,6 +1,11 @@
 package com.ss.imageParser.exception;
 
-public class ForbiddenException extends RuntimeException {
+import com.ss.ExceptInfoUser;
+import com.ss.Message4User_I;
+
+import java.util.Map;
+
+public class ForbiddenException extends RuntimeException{
     public ForbiddenException() {
     }
 

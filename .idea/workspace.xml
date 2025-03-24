@@ -4,67 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8e3189-a69e-44fc-a968-aab795169245" name="Changes" comment="Добавлена обработка ошибок и получение пути файла из json`а">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf_topt_serv.json" afterDir="false" />
+    <list default="true" id="4b8e3189-a69e-44fc-a968-aab795169245" name="Changes" comment="Добавлено Получение значений из конфига">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ss/topt/ToptApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ss/imageParser/ToptApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except4Support.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except4SupportDocumented.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/ExceptDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/ExceptInfoUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Except_I.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/Message4User_I.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/RestTemplateConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsAppEmpty.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsAppFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsAppFactory_I.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsDb.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsDbFactoryPosgres.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsDbFactory_I.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsDbPostgre.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ConfJsObj.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptCJsNoObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptCJsNoSuchFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptCJsUnsupported.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptCJsUnsupportedDb.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptCJsUnsupportedVersion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptCJsWrongFormat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/js/ExceptConf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/monitor/MonitorErrorsDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/monitor/MonitorErrorsService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/sequence/SequenceCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/config/sequence/ServiceIdGen_I.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/ToptApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/api/controller/HandlerException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/api/controller/ImageParserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/api/dtos/ImageDownloadRequestDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/api/dtos/StringInput.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/exception/IncorrectUrlFormatException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/exception/ResourceNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ss/topt/service/ImageParserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/error.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/exceptionPage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/image-download-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadInPool.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadPool.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadPool_I.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadTick.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/thread/ThreadVl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/ArrayListV.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/ExceptCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/FormatsDate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/MapList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/MapMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/UtilsDate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/UtilsDbPg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/UtilsNum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/vl/utils/UtilsPartByDate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ss/topt/ToptApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/HandlerSupportException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/HandlerSupportException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ImageParserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ImageParserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsAppImageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsAppImageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/ForbiddenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/ForbiddenException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/IncorrectUrlFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/IncorrectUrlFormatException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/UnauthorizedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/exception/UnauthorizedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/service/ImageParserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/service/ImageParserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,20 +29,21 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "arch1enoname"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;arch1enoname&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/arch1enoname/imageParser.git",
-    "accountId": "4072ac92-9ff4-4d85-bc17-15cd12f19587"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/arch1enoname/imageParser.git&quot;,
+    &quot;accountId&quot;: &quot;4072ac92-9ff4-4d85-bc17-15cd12f19587&quot;
   }
-}]]></component>
+}</component>
   <component name="GradleModuleStateConfig" initialized="true" />
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -121,7 +72,7 @@
     "Spring Boot.ToptApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/79053/Desktop/Новая папка/imageParser/src/main/resources",
+    "last_opened_file_path": "C:/Users/79053/Desktop/Новая папка/imageParser",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -135,6 +86,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\79053\Desktop\Новая папка\imageParser" />
+      <recent name="C:\Users\79053\Desktop\Новая папка\imageParser\src\main\java\com\ss\config\js" />
       <recent name="C:\Users\79053\Desktop\Новая папка\imageParser\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -177,7 +130,8 @@
       <updated>1742548968065</updated>
       <workItem from="1742548972377" duration="4127000" />
       <workItem from="1742555342474" duration="5994000" />
-      <workItem from="1742565207716" duration="9994000" />
+      <workItem from="1742565207716" duration="9997000" />
+      <workItem from="1742797578333" duration="6349000" />
     </task>
     <task id="LOCAL-00001" summary="Добавлена обработка ошибок и получение пути файла из json`а">
       <option name="closed" value="true" />
@@ -187,7 +141,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742762686975</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавлена обработка ошибок и получение пути файла из json`а">
+      <option name="closed" value="true" />
+      <created>1742796791591</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742796791591</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Добавлено Получение значений из конфига">
+      <option name="closed" value="true" />
+      <created>1742800312552</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742800312552</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +165,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Добавлена обработка ошибок и получение пути файла из json`а" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлена обработка ошибок и получение пути файла из json`а" />
+    <MESSAGE value="Добавлено Получение значений из конфига" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено Получение значений из конфига" />
   </component>
 </project>

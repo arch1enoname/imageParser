@@ -18,7 +18,7 @@ public class HandlerSupportException {
     private final Random random = new Random();
 
     @ExceptionHandler(Except4Support.class)
-    public ModelAndView handleConstraintViolationException(Except4Support exception, Model model) {
+    public ModelAndView handleExcept4Support(Except4Support exception, Model model) {
         ModelAndView modelAndView = new ModelAndView(EXCEPTION_PAGE);
         Long exceptionId = random.nextLong();
         model.addAttribute(ERROR_MESSAGE_ATTRIBUTE, exception + "Id ошибки: " + exceptionId);

@@ -1,22 +1,20 @@
 package com.ss.imageParser.exception;
 
-public class ResourceNotFoundException extends RuntimeException {
-    public ResourceNotFoundException() {
-    }
+import com.ss.ExceptInfoUser;
+import com.ss.Message4User_I;
 
-    public ResourceNotFoundException(String message) {
+import java.util.Map;
+
+public class ResourceNotFoundException extends ExceptInfoUser {
+    public ResourceNotFoundException(Message4User_I message) {
         super(message);
     }
 
-    public ResourceNotFoundException(String message, Throwable cause) {
-        super(message, cause);
+    public ResourceNotFoundException(Message4User_I message, String message4support) {
+        super(message, message4support);
     }
 
-    public ResourceNotFoundException(Throwable cause) {
-        super(cause);
-    }
-
-    public ResourceNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public ResourceNotFoundException(Map<String, String> errors) {
+        super(errors);
     }
 }

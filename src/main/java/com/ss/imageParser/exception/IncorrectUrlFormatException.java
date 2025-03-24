@@ -1,22 +1,20 @@
 package com.ss.imageParser.exception;
 
-public class IncorrectUrlFormatException extends RuntimeException {
-    public IncorrectUrlFormatException() {
-    }
+import com.ss.ExceptInfoUser;
+import com.ss.Message4User_I;
 
-    public IncorrectUrlFormatException(String message) {
+import java.util.Map;
+
+public class IncorrectUrlFormatException extends ExceptInfoUser {
+    public IncorrectUrlFormatException(Message4User_I message) {
         super(message);
     }
 
-    public IncorrectUrlFormatException(String message, Throwable cause) {
-        super(message, cause);
+    public IncorrectUrlFormatException(Message4User_I message, String message4support) {
+        super(message, message4support);
     }
 
-    public IncorrectUrlFormatException(Throwable cause) {
-        super(cause);
-    }
-
-    public IncorrectUrlFormatException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public IncorrectUrlFormatException(Map<String, String> errors) {
+        super(errors);
     }
 }

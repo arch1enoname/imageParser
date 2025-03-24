@@ -1,5 +1,6 @@
 package com.ss.imageParser;
 
+import org.springframework.stereotype.Component;
 import vl.utils.MapList;
 import vl.utils.MapMap;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+@Component
 public class Msg {
 
     public static final String US_en = "US_en";
@@ -35,6 +37,7 @@ public class Msg {
         map.put(RU_ru, new Msg(RU_ru));
 
         HashMap<String, String> mMess;
+
         mMess = msg.getOrCreate(RU_ru);
         mMess.put(CODE_LOGIN_ERR_SESSION_EXIPED, RU_MSG_LOGIN_ERR_SESSION_EXIPED);
         mMess.put(CODE_UNAUTHORIZED_HTTP_REQUEST, RU_UNAUTHORIZED_HTTP_REQUEST);

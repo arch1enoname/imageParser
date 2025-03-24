@@ -5,23 +5,16 @@ import com.ss.Message4User_I;
 
 import java.util.Map;
 
-public class ForbiddenException extends RuntimeException{
-    public ForbiddenException() {
-    }
-
-    public ForbiddenException(String message) {
+public class ForbiddenException extends ExceptInfoUser{
+    public ForbiddenException(Message4User_I message) {
         super(message);
     }
 
-    public ForbiddenException(String message, Throwable cause) {
-        super(message, cause);
+    public ForbiddenException(Message4User_I message, String message4support) {
+        super(message, message4support);
     }
 
-    public ForbiddenException(Throwable cause) {
-        super(cause);
-    }
-
-    public ForbiddenException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public ForbiddenException(Map<String, String> errors) {
+        super(errors);
     }
 }

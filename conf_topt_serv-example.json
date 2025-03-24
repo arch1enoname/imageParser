@@ -18,7 +18,11 @@
       "attack_errors_size": 10,
       "attack_errors_interval_sec": 5,
       "attack_errors_sleep_interval_sec": 20,
-      "hikari_pool_max_size": 10
+      "hikari_pool_max_size": 10,
+      "baseDirectory": "C:\\",
+      "referrerForDownload": "https://www.google.com",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+      "threadCount": 10
     }
   ]
 }

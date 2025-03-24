@@ -1,22 +1,20 @@
 package com.ss.imageParser.exception;
 
-public class UnauthorizedException extends RuntimeException {
-    public UnauthorizedException() {
-    }
+import com.ss.ExceptInfoUser;
+import com.ss.Message4User_I;
 
-    public UnauthorizedException(String message) {
+import java.util.Map;
+
+public class UnauthorizedException extends ExceptInfoUser {
+    public UnauthorizedException(Message4User_I message) {
         super(message);
     }
 
-    public UnauthorizedException(String message, Throwable cause) {
-        super(message, cause);
+    public UnauthorizedException(Message4User_I message, String message4support) {
+        super(message, message4support);
     }
 
-    public UnauthorizedException(Throwable cause) {
-        super(cause);
-    }
-
-    public UnauthorizedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
+    public UnauthorizedException(Map<String, String> errors) {
+        super(errors);
     }
 }

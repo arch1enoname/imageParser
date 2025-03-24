@@ -34,6 +34,7 @@ public class ConfJsAppImageParser extends ConfJsApp {
     private String directory;
     private String referrer;
     private String userAgent;
+    private int threadCount;
 
 
     public static final String SERVER_TYPE_DEV = "dev";
@@ -74,6 +75,7 @@ public class ConfJsAppImageParser extends ConfJsApp {
             directory = getStringRequired(p_xParser, "baseDirectory");
             referrer = getStringRequired(p_xParser, "referrerForDownload");
             userAgent = getStringRequired(p_xParser, "userAgent");
+            threadCount = getIntRequired(p_xParser, "userAgent");
 
         } catch (RuntimeException ex) {
             throw new ExceptConf("ErrConfA1", "Can't process project configuration",
@@ -138,6 +140,10 @@ public class ConfJsAppImageParser extends ConfJsApp {
 
     public String getDirectory() {
         return directory;
+    }
+
+    public int getThreadCount() {
+        return threadCount;
     }
 
     public String getReferrer() {

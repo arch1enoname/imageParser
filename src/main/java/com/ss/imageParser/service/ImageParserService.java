@@ -1,6 +1,7 @@
 package com.ss.imageParser.service;
 
 import com.ss.Except4Support;
+import com.ss.imageParser.Msg;
 import com.ss.imageParser.api.dtos.ImageDownloadRequestDto;
 import com.ss.imageParser.confJs.ConfJsAppImageParser;
 import com.ss.imageParser.confJs.ConfJsImageParser;
@@ -12,7 +13,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -27,6 +27,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+
 @Service
 public class ImageParserService {
     ConfJsAppImageParser config = ConfJsImageParser.getInstance().getApp();
@@ -35,19 +36,21 @@ public class ImageParserService {
     private final String REFERRER = config.getReferrer();
     private final String IMAGE_HTML_TAG = "img";
     private final String ATTRIBUTE = "abs:src";
-    private String DIRECTORY_PATH = config.getDirectory();
+    private final String DIRECTORY_PATH = config.getDirectory();
+    private final int THREAD_COUNT = config.getThreadCount();
 
     private final String ERROR_CREATING_FOLDER_CODE = "ERROR_CREATING_FOLDER_CODE";
     private final String ERROR_DOWNLOAD_PICTURE_CODE = "ERROR_DOWNLOAD_PICTURE_CODE";
     private final String ERROR_DOWNLOAD_PAGE_CODE = "ERROR_DOWNLOAD_PAGE_CODE";
 
-    public void parseImages(ImageDownloadRequestDto imageDownloadRequestDto) {
+
+    public void parseImages(ImageDownloadRequestDto imageDownloadRequestDto) throws IncorrectUrlFormatException, ForbiddenException, UnauthorizedException, ResourceNotFoundException {
 
         String url = imageDownloadRequestDto.getUrl();
         String path = DIRECTORY_PATH + imageDownloadRequestDto.getFolderName();
         createDirectory(path);
 
-        try (ExecutorService executor = Executors.newFixedThreadPool(10)) {
+        try (ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT)) {
 
             Document doc = Jsoup.connect(url)
                     .userAgent(USER_AGENT)
@@ -70,7 +73,7 @@ public class ImageParserService {
             } catch (InterruptedException e) {
             }
         } catch (MalformedURLException e) {
-            throw new IncorrectUrlFormatException("Некорректный url: " + url);
+            throw new IncorrectUrlFormatException(Msg.i().getMessage((Msg.CODE_INCORRECT_URL_ERR)));
         } catch (NoSuchFileException e) {
             throw new CreatingFolderException(ERROR_CREATING_FOLDER_CODE, "Ошибка в процессе создания папки");
         } catch (HttpStatusException e) {
@@ -123,16 +126,16 @@ public class ImageParserService {
         }
     }
 
-    private void handleHttpStatusException(HttpStatusException e) {
+    private void handleHttpStatusException(HttpStatusException e) throws ForbiddenException, UnauthorizedException, ResourceNotFoundException {
         int statusCode = e.getStatusCode();
         String errorMessage = statusCode + " url: " + e.getUrl();
 
         if (statusCode == 401) {
-            throw new UnauthorizedException("Пользователь не авторизован. " + errorMessage);
+            throw new UnauthorizedException(Msg.i().getMessage(Msg.CODE_UNAUTHORIZED_HTTP_REQUEST));
         } else if (statusCode == 403) {
-            throw new ForbiddenException("Доступ к запрашиваемому ресурсу запрещен");
+            throw new ForbiddenException(Msg.i().getMessage(Msg.CODE_FORBIDDEN_ERR));
         } else if (statusCode == 404) {
-            throw new ResourceNotFoundException("Невозможно найти запрашиваемый ресурс. " + errorMessage);
+            throw new ResourceNotFoundException(Msg.i().getMessage(Msg.CODE_RESOURCE_NOT_FOUND_ERR));
         } else {
             throw new ImageDownloadException("Ошибка. ", errorMessage);
         }

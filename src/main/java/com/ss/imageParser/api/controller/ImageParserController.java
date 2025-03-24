@@ -1,6 +1,10 @@
 package com.ss.imageParser.api.controller;
 
 import com.ss.imageParser.api.dtos.ImageDownloadRequestDto;
+import com.ss.imageParser.exception.ForbiddenException;
+import com.ss.imageParser.exception.IncorrectUrlFormatException;
+import com.ss.imageParser.exception.ResourceNotFoundException;
+import com.ss.imageParser.exception.UnauthorizedException;
 import com.ss.imageParser.service.ImageParserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +40,7 @@ public class ImageParserController {
     }
 
     @PostMapping
-    public String processForm(@Valid @ModelAttribute ImageDownloadRequestDto imageDownloadRequestDto, Model model) {
+    public String processForm(@Valid @ModelAttribute ImageDownloadRequestDto imageDownloadRequestDto, Model model) throws ForbiddenException, UnauthorizedException, IncorrectUrlFormatException, ResourceNotFoundException {
         imageParserService.parseImages(imageDownloadRequestDto);
         return SUCCESS_PAGE;
     }

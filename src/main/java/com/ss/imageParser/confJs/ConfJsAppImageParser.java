@@ -60,18 +60,6 @@ public class ConfJsAppImageParser extends ConfJsApp {
             serverType = getStringRequired(p_xParser, "server_type");
             domain = getStringRequired(p_xParser, "domain");
             hikariPoolMaxSize = getIntRequired(p_xParser, "hikari_pool_max_size");
-            // API
-            actionServiceUrlCreate = getStringRequired(p_xParser, "action_service_url_create");
-            actionServiceUrlClose = getStringRequired(p_xParser, "action_service_url_close");
-            //ERRORS
-            errorsSize = getIntRequired(p_xParser, "attack_errors_size");
-            errorsInterval = getIntRequired(p_xParser, "attack_errors_interval_sec");
-            errorsSleepInterval = getIntRequired(p_xParser, "attack_errors_sleep_interval_sec");
-            //keycloak
-            keycloakOpenidUrl =  getStringRequired(p_xParser, "keycloak_openid_url");
-            keycloakPublicKey =  getStringRequired(p_xParser, "keycloak_public_key");
-            keycloakClientSecret =  getStringRequired(p_xParser, "keycloak_client_secret");
-            keycloakClientUrl =  getStringRequired(p_xParser, "keycloak_client_url");
             directory = getStringRequired(p_xParser, "baseDirectory");
             referrer = getStringRequired(p_xParser, "referrerForDownload");
             userAgent = getStringRequired(p_xParser, "userAgent");

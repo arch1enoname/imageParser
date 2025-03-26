@@ -1,4 +1,4 @@
-package com.ss.imageParser.api.dtos;
+package com.ss.imageParser.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

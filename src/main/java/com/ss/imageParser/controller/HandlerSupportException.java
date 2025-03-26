@@ -1,4 +1,4 @@
-package com.ss.imageParser.api.controller;
+package com.ss.imageParser.controller;
 
 import com.ss.Except4Support;
 import lombok.extern.slf4j.Slf4j;

@@ -18,13 +18,6 @@ public class ConfJsAppImageParser extends ConfJsApp {
     private String nameServer;
     private String urlBase;
     private String serverType;
-    public String actionServiceUrlCreate;
-    public String actionServiceUrlClose;
-    public String keycloakOpenidUrl;
-    public String keycloakPublicKey;
-    @JsonIgnore
-    public String keycloakClientSecret;
-    public String keycloakClientUrl;
     public String domain;
     private int hikariPoolMaxSize;
 
@@ -79,14 +72,6 @@ public class ConfJsAppImageParser extends ConfJsApp {
         return urlBase;
     }
 
-    public String getActionServiceUrlCreate() {
-        return actionServiceUrlCreate;
-    }
-
-    public String getActionServiceUrlClose() {
-        return actionServiceUrlClose;
-    }
-
     public String getServerType() {
         return serverType;
     }
@@ -104,22 +89,6 @@ public class ConfJsAppImageParser extends ConfJsApp {
 
     public int getErrorsSleepInterval() {
         return errorsSleepInterval;
-    }
-
-    public String getKeycloakOpenidUrl() {
-        return keycloakOpenidUrl;
-    }
-
-    public String getKeycloakPublicKey() {
-        return keycloakPublicKey;
-    }
-
-    public String getKeycloakClientSecret() {
-        return keycloakClientSecret;
-    }
-
-    public String getKeycloakClientUrl() {
-        return keycloakClientUrl;
     }
 
     public int getHikariPoolMaxSize() {
@@ -144,16 +113,19 @@ public class ConfJsAppImageParser extends ConfJsApp {
 
     @Override
     public String toString() {
-        return "urlBase=" + urlBase + "\n"
-                + "serverType=" + serverType + "\n"
-                + "domain=" + domain + "\n"
-                + "actionServiceUrlCreate=" + actionServiceUrlCreate + "\n"
-                + "actionServiceUrlClose=" + actionServiceUrlClose + "\n"
-                + "keycloakOpenidUrl=" + keycloakOpenidUrl + "\n"
-                + "keycloakPublicKey=" + keycloakPublicKey + "\n"
-                + "keycloakClientUrl=" + keycloakClientUrl + "\n";
-
+        return "ConfJsAppImageParser{" +
+                "nameServer='" + nameServer + '\'' +
+                ", urlBase='" + urlBase + '\'' +
+                ", serverType='" + serverType + '\'' +
+                ", domain='" + domain + '\'' +
+                ", hikariPoolMaxSize=" + hikariPoolMaxSize +
+                ", errorsSize=" + errorsSize +
+                ", errorsInterval=" + errorsInterval +
+                ", errorsSleepInterval=" + errorsSleepInterval +
+                ", directory='" + directory + '\'' +
+                ", referrer='" + referrer + '\'' +
+                ", userAgent='" + userAgent + '\'' +
+                ", threadCount=" + threadCount +
+                '}';
     }
-
-
 }

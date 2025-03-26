@@ -1,4 +1,4 @@
-package com.ss.imageParser.api.controller;
+package com.ss.imageParser.controller;
 
 import com.ss.ExceptInfoUser;
 import org.springframework.stereotype.Controller;

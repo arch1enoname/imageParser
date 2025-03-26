@@ -1,7 +1,7 @@
-package com.ss.imageParser.api.controller;
+package com.ss.imageParser.controller;
 
 import com.ss.ExceptInfoUser;
-import com.ss.imageParser.api.dtos.ImageDownloadRequestDto;
+import com.ss.imageParser.dtos.ImageDownloadRequestDto;
 import com.ss.imageParser.service.ImageParserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

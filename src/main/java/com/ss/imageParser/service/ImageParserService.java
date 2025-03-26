@@ -2,12 +2,13 @@ package com.ss.imageParser.service;
 
 import com.ss.Except4Support;
 import com.ss.imageParser.Msg;
-import com.ss.imageParser.api.dtos.ImageDownloadRequestDto;
+import com.ss.imageParser.dtos.ImageDownloadRequestDto;
 import com.ss.imageParser.confJs.ConfJsAppImageParser;
 import com.ss.imageParser.confJs.ConfJsImageParser;
 import com.ss.imageParser.exception.*;
 import com.ss.imageParser.exception.support.CreatingFolderException;
 import com.ss.imageParser.exception.support.ImageDownloadException;
+import org.apache.hc.core5.http.HttpStatus;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -38,6 +39,7 @@ public class ImageParserService {
     private final String ATTRIBUTE = "abs:src";
     private final String DIRECTORY_PATH = config.getDirectory();
     private final int THREAD_COUNT = config.getThreadCount();
+    private final String ADDITIONAL_PARAMETERS_MARK = "?";
 
     private final String ERROR_CREATING_FOLDER_CODE = "ERROR_CREATING_FOLDER_CODE";
     private final String ERROR_DOWNLOAD_PICTURE_CODE = "ERROR_DOWNLOAD_PICTURE_CODE";
@@ -75,11 +77,11 @@ public class ImageParserService {
         } catch (MalformedURLException e) {
             throw new IncorrectUrlFormatException(Msg.i().getMessage((Msg.CODE_INCORRECT_URL_ERR)));
         } catch (NoSuchFileException e) {
-            throw new CreatingFolderException(ERROR_CREATING_FOLDER_CODE, "Ошибка в процессе создания папки");
+            throw new CreatingFolderException(ERROR_CREATING_FOLDER_CODE, "Ошибка в процессе создания папки", e);
         } catch (HttpStatusException e) {
             handleHttpStatusException(e);
         } catch (IOException e) {
-            throw new Except4Support(ERROR_DOWNLOAD_PAGE_CODE, "Ошибка при скачивании страницы");
+            throw new Except4Support(ERROR_DOWNLOAD_PAGE_CODE, "Ошибка при скачивании страницы", e);
         }
     }
 
@@ -94,7 +96,7 @@ public class ImageParserService {
             InputStream in = url.openStream();
             Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            throw new Except4Support(ERROR_DOWNLOAD_PICTURE_CODE, "Ошибка при скачивании картинки.");
+            throw new Except4Support(ERROR_DOWNLOAD_PICTURE_CODE, "Ошибка при скачивании картинки.", e);
          }
 
     }
@@ -113,8 +115,8 @@ public class ImageParserService {
     }
 
     private String removeAdditionalParameters(String fileName) {
-        if (fileName.contains("?")) {
-            return fileName.substring(0, fileName.indexOf("?"));
+        if (fileName.contains(ADDITIONAL_PARAMETERS_MARK)) {
+            return fileName.substring(0, fileName.indexOf(ADDITIONAL_PARAMETERS_MARK));
         }
         return fileName;
     }
@@ -122,7 +124,11 @@ public class ImageParserService {
     private void createDirectory(String directoryPath) {
         File directory = new File(directoryPath);
         if (!directory.exists()) {
-            directory.mkdirs();
+            try {
+                directory.mkdirs();
+            } catch (RuntimeException e) {
+                throw new Except4Support("ERR_CODE_004", "Ошибка при создании директории.", e);
+            }
         }
     }
 
@@ -130,14 +136,14 @@ public class ImageParserService {
         int statusCode = e.getStatusCode();
         String errorMessage = statusCode + " url: " + e.getUrl();
 
-        if (statusCode == 401) {
+        if (statusCode == HttpStatus.SC_UNAUTHORIZED) {
             throw new UnauthorizedException(Msg.i().getMessage(Msg.CODE_UNAUTHORIZED_HTTP_REQUEST));
-        } else if (statusCode == 403) {
+        } else if (statusCode == HttpStatus.SC_FORBIDDEN) {
             throw new ForbiddenException(Msg.i().getMessage(Msg.CODE_FORBIDDEN_ERR));
-        } else if (statusCode == 404) {
+        } else if (statusCode == HttpStatus.SC_NOT_FOUND) {
             throw new ResourceNotFoundException(Msg.i().getMessage(Msg.CODE_RESOURCE_NOT_FOUND_ERR));
         } else {
-            throw new ImageDownloadException("Ошибка. ", errorMessage);
+            throw new ImageDownloadException("ERR_CODE_005", "Ошибка при парсинге.", e);
         }
     }
 }

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b8e3189-a69e-44fc-a968-aab795169245" name="Changes" comment="Rename project">
+    <list default="true" id="4b8e3189-a69e-44fc-a968-aab795169245" name="Changes" comment="убрал мусор из конфига&#10;обрабатываю эксепшны в контроллере&#10;убрал все упоминания topt`а">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ImageParserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ImageParserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ControllerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/controller/ControllerBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/HandlerSupportException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/controller/HandlerSupportException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/HandlerUserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/controller/HandlerUserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/controller/ImageParserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/controller/ImageParserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/api/dtos/ImageDownloadRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/dtos/ImageDownloadRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsAppImageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/confJs/ConfJsAppImageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/service/ImageParserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/imageParser/service/ImageParserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +132,9 @@
       <workItem from="1742565207716" duration="9997000" />
       <workItem from="1742797578333" duration="6832000" />
       <workItem from="1742808306446" duration="86000" />
-      <workItem from="1742887743304" duration="389000" />
+      <workItem from="1742887743304" duration="467000" />
+      <workItem from="1742893012044" duration="1593000" />
+      <workItem from="1742970474439" duration="385000" />
     </task>
     <task id="LOCAL-00001" summary="Добавлена обработка ошибок и получение пути файла из json`а">
       <option name="closed" value="true" />
@@ -169,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742808359525</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="убрал мусор из конфига&#10;обрабатываю эксепшны в контроллере&#10;убрал все упоминания topt`а">
+      <option name="closed" value="true" />
+      <created>1742888201169</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742888201169</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +195,7 @@
     <MESSAGE value="Добавлено Получение значений из конфига" />
     <MESSAGE value="Исправлена обработка ошибок с помощью Message" />
     <MESSAGE value="Rename project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename project" />
+    <MESSAGE value="убрал мусор из конфига&#10;обрабатываю эксепшны в контроллере&#10;убрал все упоминания topt`а" />
+    <option name="LAST_COMMIT_MESSAGE" value="убрал мусор из конфига&#10;обрабатываю эксепшны в контроллере&#10;убрал все упоминания topt`а" />
   </component>
 </project>
